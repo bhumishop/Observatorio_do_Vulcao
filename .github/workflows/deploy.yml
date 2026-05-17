@@ -25,13 +25,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build with Nuxt
-        run: npm run generate
+        run: pnpm generate
         env:
           NUXT_PUBLIC_BASE_URL: /
 
